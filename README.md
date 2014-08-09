@@ -5,7 +5,7 @@ Getting Started
 ===============
 1. Clone this repository
 2. Configure according to the `Configuration` section
-3.
+3. Run `node app.js`
 Configuration
 =============
 Configuring the server is simple, you can use any plugin compatible with [slack-command-router](https://github.com/terribly-lazy/slack-command-router), custom or otherwise.
