@@ -1,7 +1,7 @@
 {
   "name": "slack-command-server",
-  "version": "0.0.2",
-  "description": "A slack slash command hander framework",
+  "version": "0.0.3",
+  "description": "A slack slash command handler framework",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

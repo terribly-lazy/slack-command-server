@@ -1,7 +1,16 @@
 {
-    "plugins": [
-        "slack-roll-command"
-    ],
-    "local-plugins": [],
+    "plugins": {
+        "slack-roll-command": {},
+        "slack-phrase-command": {
+            "phrases": [
+                "Test phrase 1",
+                "Test phrase 2"
+            ],
+            "command": "test"
+        }
+    },
+    "local-plugins": {
+        "./my/local/plugin.js": {}
+    },
     "port": 80
 }

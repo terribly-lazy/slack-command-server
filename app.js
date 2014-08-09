@@ -19,29 +19,37 @@ var pluginsToInstall = config.plugins || [],
     pluginsToLoad = config["local-plugins"] || [];
 
 function installPlugins(callback) {
-    if (pluginsToInstall.length === 0) {
+    var pluginNames = _.keys(pluginsToInstall);
+    if (pluginNames.length === 0) {
         callback([]);
         return;
     }
     var npm = require('npm');
     npm.load({}, function (err) {
         if (err) throw err;
-        npm.commands["install"](pluginsToInstall, function (err) {
+        npm.commands["install"](pluginNames, function (err) {
             if (err) throw err;
             var loadedPlugins = [];
-            for (var i = 0; i < pluginsToInstall.length; i++) {
-                loadedPlugins.push(require(pluginsToInstall[i]));
-            }
+            _.forEach(pluginNames, function(name) {
+                //Load and configure each plugin
+                loadedPlugins.push(require(name)(pluginsToInstall[name]));
+            });
             callback(loadedPlugins);
         });
     });
 }
 
 function loadPlugins(callback) {
-    var loadedPlugins = [];
-    for (var i = 0; i < pluginsToLoad.length; i++) {
-        loadedPlugins.push(require(path.resolve(__dirname, pluginsToLoad[i])));
+    var pluginNames = _.keys(pluginsToLoad);
+    if (pluginNames.length === 0) {
+        callback([]);
+        return;
     }
+    var loadedPlugins = [];
+    _.forEach(pluginNames, function(path) {
+        //Load and configure each plugin
+        loadedPlugins.push(require(path.resolve(__dirname, path))(pluginsToLoad[path]));
+    });
     callback(loadedPlugins);
 }
 

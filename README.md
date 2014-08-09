@@ -17,17 +17,17 @@ You must define what port for the app to listen on by defining `port: 80`
 To use pre-written plugins write your configuration thusly:
 ```json
 {
-    "plugins": [
-        "slack-roll-command"
-    ]
+    "plugins": {
+        "slack-roll-command": {}
+    }
 }
 ```
 Or if you have plugins of your own, you can do this:
 ```json
 {
-    "local-plugins": [
-        "directory/to/plugin.js"
-    ]
+    "local-plugins": {
+        "directory/to/plugin.js": {}
+    }
 }
 ```
 
