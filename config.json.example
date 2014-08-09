@@ -2,5 +2,6 @@
     "plugins": [
         "slack-roll-command"
     ],
-    "local-plugins": []
+    "local-plugins": [],
+    "port": 80
 }

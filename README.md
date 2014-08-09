@@ -1,10 +1,16 @@
 slack-command-server
 ====================
 Slack command server is a simple way to build a server that responds to slack slash commands.
-
+Getting Started
+===============
+1. Clone this repository
+2. Configure according to the `Configuration` section
+3.
 Configuration
 =============
 Configuring the server is simple, you can use any plugin compatible with [slack-command-router](https://github.com/terribly-lazy/slack-command-router), custom or otherwise.
+
+You must define what port for the app to listen on by defining `port: 80`
 
 To use pre-written plugins write your configuration thusly:
 ```json

@@ -1,6 +1,6 @@
 {
   "name": "slack-command-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A slack slash command hander framework",
   "main": "app.js",
   "scripts": {
@@ -20,6 +20,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "connect": "~3.1.0",
+    "lodash": "^2.4.1",
     "npm": "^1.4.23",
     "require-directory": "~2.0.0",
     "slack-command-router": "0.0.0"

@@ -1,10 +1,19 @@
 var connect = require('connect'),
     SlackIncoming = require('slack-command-router'),
     path = require('path'),
-    fs = require('fs');
+    fs = require('fs'),
+    _ = require('lodash');
 
-var config = JSON.parse(fs.readFileSync("config.json")),
-    slack = new SlackIncoming();
+var config = JSON.parse(fs.readFileSync("config.json"));
+
+var requiredSetup = ["port"];
+if (_.intersection(_.keys(config), requiredSetup).length !== requiredSetup.length) {
+    throw {
+        message: "Missing required configuration parameters"
+    }
+}
+
+var slack = new SlackIncoming();
 
 var pluginsToInstall = config.plugins || [],
     pluginsToLoad = config["local-plugins"] || [];
@@ -56,7 +65,7 @@ function startApp() {
         res.writeHead(400);
         res.end("Unable to handle request");
     });
-    app.listen(2354);
+    app.listen(config.port);
 }
 
 installPlugins(initCallback(function() {
