@@ -30,7 +30,7 @@ function installPlugins(callback) {
             if (err) throw err;
             var loadedPlugins = [];
             for (var i = 0; i < pluginsToInstall.length; i++) {
-                loadedPlugins.push(path.resolve(__dirname, require(pluginsToInstall[i])));
+                loadedPlugins.push(require(pluginsToInstall[i]));
             }
             callback(loadedPlugins);
         });
@@ -40,7 +40,7 @@ function installPlugins(callback) {
 function loadPlugins(callback) {
     var loadedPlugins = [];
     for (var i = 0; i < pluginsToLoad.length; i++) {
-        pluginsToLoad.push(require(pluginsToLoad[i]));
+        loadedPlugins.push(require(path.resolve(__dirname, pluginsToLoad[i])));
     }
     callback(loadedPlugins);
 }
