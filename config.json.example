@@ -1,0 +1,6 @@
+{
+    "plugins": [
+        "slack-roll-command"
+    ],
+    "local-plugins": []
+}
