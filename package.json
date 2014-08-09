@@ -1,6 +1,6 @@
 {
   "name": "slack-command-server",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A slack slash command handler framework",
   "main": "app.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "lodash": "^2.4.1",
     "npm": "^1.4.23",
     "require-directory": "~2.0.0",
-    "slack-command-router": "0.0.0"
+    "slack-command-router": "0.0.1"
   },
   "bugs": {
     "url": "https://github.com/terribly-lazy/slack-command-server/issues"
